@@ -1,0 +1,357 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use ruhande;
+Database changed
+mysql> create table Ngoma(ID int(16),F_name char(12),F_name char(12),Gender char(6),province char(10), District char(12),Sector char(10),Cell char(10), Email char(20), phone int(10));
+ERROR 1050 (42S01): Table 'ngoma' already exists
+mysql> create table Ngoma1(ID int(16),F_name char(12),F_name char(12),Gender char(6),province char(10), District char(12),Sector char(10),Cell char(10), Email char(20), phone int(10));
+ERROR 1060 (42S21): Duplicate column name 'F_name'
+mysql> create table Ngoma1(ID int(16),F_name char(12),L_name char(12),Gender char(6),province char(10), District char(12),Sector char(10),Cell char(10), Email char(20), phone int(10));
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+mysql> insert into Ngoma1 values('1','Claudine','MUJAWIMANA','F','SOUTHERN','HUYE','NGOMA','BUTARE','emmahclaudine@gmail.com','0790085871');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into Ngoma1 values('1','Grace','UWAYO','F','SOUTHERN','HUYE','NGOMA','BUTARE','grace@gmail.com','0780085871');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Ngoma1 values('1','Rodrigue','MUSONI','F','SOUTHERN','HUYE','NGOMA','BUTARE','rodriguemusoni@gmail.com','0782285881');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into Ngoma1 values('1','Rodrigue','MUGABO','M','SOUTHERN','HUYE','NGOMA','BUTARE','rodriguemu@gmail.com','0782285871');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Ngoma1 values('2','Venant','NDAHAYO','M','SOUTHERN','HUYE','NGOMA','Rwabuye','ndahayo123@gmail.com','0782255871');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select *from Ngoma1;
++------+----------+------------+--------+----------+----------+--------+---------+----------------------+-----------+
+| ID   | F_name   | L_name     | Gender | province | District | Sector | Cell    | Email                | phone     |
++------+----------+------------+--------+----------+----------+--------+---------+----------------------+-----------+
+|    1 | Claudine | MUJAWIMANA | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | emmahclaudine@gmail. | 790085871 |
+|    1 | Grace    | UWAYO      | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | grace@gmail.com      | 780085871 |
+|    1 | Rodrigue | MUSONI     | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | rodriguemusoni@gmail | 782285881 |
+|    1 | Rodrigue | MUGABO     | M      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | rodriguemu@gmail.com | 782285871 |
+|    2 | Venant   | NDAHAYO    | M      | SOUTHERN | HUYE     | NGOMA  | Rwabuye | ndahayo123@gmail.com | 782255871 |
++------+----------+------------+--------+----------+----------+--------+---------+----------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> update Ngoma1 set ID='3'where L_name='UWAYO';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from Ngoma1;
++------+----------+------------+--------+----------+----------+--------+---------+----------------------+-----------+
+| ID   | F_name   | L_name     | Gender | province | District | Sector | Cell    | Email                | phone     |
++------+----------+------------+--------+----------+----------+--------+---------+----------------------+-----------+
+|    1 | Claudine | MUJAWIMANA | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | emmahclaudine@gmail. | 790085871 |
+|    3 | Grace    | UWAYO      | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | grace@gmail.com      | 780085871 |
+|    1 | Rodrigue | MUSONI     | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | rodriguemusoni@gmail | 782285881 |
+|    1 | Rodrigue | MUGABO     | M      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | rodriguemu@gmail.com | 782285871 |
+|    2 | Venant   | NDAHAYO    | M      | SOUTHERN | HUYE     | NGOMA  | Rwabuye | ndahayo123@gmail.com | 782255871 |
++------+----------+------------+--------+----------+----------+--------+---------+----------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> update Ngoma1 set ID='4'where L_name='MUSONI';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma1 set ID='5'where L_name='MUGABO';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from Ngoma1;
++------+----------+------------+--------+----------+----------+--------+---------+----------------------+-----------+
+| ID   | F_name   | L_name     | Gender | province | District | Sector | Cell    | Email                | phone     |
++------+----------+------------+--------+----------+----------+--------+---------+----------------------+-----------+
+|    1 | Claudine | MUJAWIMANA | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | emmahclaudine@gmail. | 790085871 |
+|    3 | Grace    | UWAYO      | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | grace@gmail.com      | 780085871 |
+|    4 | Rodrigue | MUSONI     | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | rodriguemusoni@gmail | 782285881 |
+|    5 | Rodrigue | MUGABO     | M      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | rodriguemu@gmail.com | 782285871 |
+|    2 | Venant   | NDAHAYO    | M      | SOUTHERN | HUYE     | NGOMA  | Rwabuye | ndahayo123@gmail.com | 782255871 |
++------+----------+------------+--------+----------+----------+--------+---------+----------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into Ngoma1 values('6','Arstide','Rudasingwa','M','SOUTHERN','HUYE','Tumba','Rango','rudasingwa3@gmail.com','0782855871');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into Ngoma1 values('7','Aimee','Mariya','F','SOUTHERN','HUYE','Tumba','Mukoni','aimee3@gmail.com','0782855875');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Ngoma1 values('198640120700121','Pascal','MUNYARUKUMBUZI','F','Nothern','Rulindo','Rusiga','Taba','pascal@gmail.com','0786161406');
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql> insert into Ngoma1 values('1998640120703451','Solina','MUKAKALISA','F','Nothern','Rulindo','Rusiga','Taba','solina@gmail.com','0726161406');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> select*from Ngoma1;
++------------+----------+--------------+--------+----------+----------+--------+---------+----------------------+-----------+
+| ID         | F_name   | L_name       | Gender | province | District | Sector | Cell    | Email                | phone     |
++------------+----------+--------------+--------+----------+----------+--------+---------+----------------------+-----------+
+|          1 | Claudine | MUJAWIMANA   | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | emmahclaudine@gmail. | 790085871 |
+|          3 | Grace    | UWAYO        | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | grace@gmail.com      | 780085871 |
+|          4 | Rodrigue | MUSONI       | F      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | rodriguemusoni@gmail | 782285881 |
+|          5 | Rodrigue | MUGABO       | M      | SOUTHERN | HUYE     | NGOMA  | BUTARE  | rodriguemu@gmail.com | 782285871 |
+|          2 | Venant   | NDAHAYO      | M      | SOUTHERN | HUYE     | NGOMA  | Rwabuye | ndahayo123@gmail.com | 782255871 |
+|          6 | Arstide  | Rudasingwa   | M      | SOUTHERN | HUYE     | Tumba  | Rango   | rudasingwa3@gmail.co | 782855871 |
+|          7 | Aimee    | Mariya       | F      | SOUTHERN | HUYE     | Tumba  | Mukoni  | aimee3@gmail.com     | 782855875 |
+| 2147483647 | Pascal   | MUNYARUKUMBU | F      | Nothern  | Rulindo  | Rusiga | Taba    | pascal@gmail.com     | 786161406 |
+| 2147483647 | Solina   | MUKAKALISA   | F      | Nothern  | Rulindo  | Rusiga | Taba    | solina@gmail.com     | 726161406 |
++------------+----------+--------------+--------+----------+----------+--------+---------+----------------------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> insert into Ngoma1 values('10','Cabella','UJENEZA','F','Nothern','Rulindo','Bushoki','Tabagwe','cabella@gmail.com','0726461406');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from Ngom1;
+ERROR 1146 (42S02): Table 'ruhande.ngom1' doesn't exist
+mysql> select*from Ngoma1;
++------------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+
+| ID         | F_name   | L_name       | Gender | province | District | Sector  | Cell    | Email                | phone     |
++------------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+
+|          1 | Claudine | MUJAWIMANA   | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | emmahclaudine@gmail. | 790085871 |
+|          3 | Grace    | UWAYO        | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | grace@gmail.com      | 780085871 |
+|          4 | Rodrigue | MUSONI       | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemusoni@gmail | 782285881 |
+|          5 | Rodrigue | MUGABO       | M      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemu@gmail.com | 782285871 |
+|          2 | Venant   | NDAHAYO      | M      | SOUTHERN | HUYE     | NGOMA   | Rwabuye | ndahayo123@gmail.com | 782255871 |
+|          6 | Arstide  | Rudasingwa   | M      | SOUTHERN | HUYE     | Tumba   | Rango   | rudasingwa3@gmail.co | 782855871 |
+|          7 | Aimee    | Mariya       | F      | SOUTHERN | HUYE     | Tumba   | Mukoni  | aimee3@gmail.com     | 782855875 |
+| 2147483647 | Pascal   | MUNYARUKUMBU | F      | Nothern  | Rulindo  | Rusiga  | Taba    | pascal@gmail.com     | 786161406 |
+| 2147483647 | Solina   | MUKAKALISA   | F      | Nothern  | Rulindo  | Rusiga  | Taba    | solina@gmail.com     | 726161406 |
+|         10 | Cabella  | UJENEZA      | F      | Nothern  | Rulindo  | Bushoki | Tabagwe | cabella@gmail.com    | 726461406 |
++------------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> update Ngoma1 set ID='8'where L_name='MUNYARUKUMBUZI';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update Ngoma1 set ID='9'where L_name='MUKAKALISA';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from Ngoma1;
++------------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+
+| ID         | F_name   | L_name       | Gender | province | District | Sector  | Cell    | Email                | phone     |
++------------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+
+|          1 | Claudine | MUJAWIMANA   | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | emmahclaudine@gmail. | 790085871 |
+|          3 | Grace    | UWAYO        | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | grace@gmail.com      | 780085871 |
+|          4 | Rodrigue | MUSONI       | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemusoni@gmail | 782285881 |
+|          5 | Rodrigue | MUGABO       | M      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemu@gmail.com | 782285871 |
+|          2 | Venant   | NDAHAYO      | M      | SOUTHERN | HUYE     | NGOMA   | Rwabuye | ndahayo123@gmail.com | 782255871 |
+|          6 | Arstide  | Rudasingwa   | M      | SOUTHERN | HUYE     | Tumba   | Rango   | rudasingwa3@gmail.co | 782855871 |
+|          7 | Aimee    | Mariya       | F      | SOUTHERN | HUYE     | Tumba   | Mukoni  | aimee3@gmail.com     | 782855875 |
+| 2147483647 | Pascal   | MUNYARUKUMBU | F      | Nothern  | Rulindo  | Rusiga  | Taba    | pascal@gmail.com     | 786161406 |
+|          9 | Solina   | MUKAKALISA   | F      | Nothern  | Rulindo  | Rusiga  | Taba    | solina@gmail.com     | 726161406 |
+|         10 | Cabella  | UJENEZA      | F      | Nothern  | Rulindo  | Bushoki | Tabagwe | cabella@gmail.com    | 726461406 |
++------------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> update Ngoma1 set ID='8'where F_name='Pascal';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT*FROM NGOMA1;
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+
+| ID   | F_name   | L_name       | Gender | province | District | Sector  | Cell    | Email                | phone     |
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+
+|    1 | Claudine | MUJAWIMANA   | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | emmahclaudine@gmail. | 790085871 |
+|    3 | Grace    | UWAYO        | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | grace@gmail.com      | 780085871 |
+|    4 | Rodrigue | MUSONI       | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemusoni@gmail | 782285881 |
+|    5 | Rodrigue | MUGABO       | M      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemu@gmail.com | 782285871 |
+|    2 | Venant   | NDAHAYO      | M      | SOUTHERN | HUYE     | NGOMA   | Rwabuye | ndahayo123@gmail.com | 782255871 |
+|    6 | Arstide  | Rudasingwa   | M      | SOUTHERN | HUYE     | Tumba   | Rango   | rudasingwa3@gmail.co | 782855871 |
+|    7 | Aimee    | Mariya       | F      | SOUTHERN | HUYE     | Tumba   | Mukoni  | aimee3@gmail.com     | 782855875 |
+|    8 | Pascal   | MUNYARUKUMBU | F      | Nothern  | Rulindo  | Rusiga  | Taba    | pascal@gmail.com     | 786161406 |
+|    9 | Solina   | MUKAKALISA   | F      | Nothern  | Rulindo  | Rusiga  | Taba    | solina@gmail.com     | 726161406 |
+|   10 | Cabella  | UJENEZA      | F      | Nothern  | Rulindo  | Bushoki | Tabagwe | cabella@gmail.com    | 726461406 |
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> alter table Ngoma1 add category int(2);
+Query OK, 10 rows affected, 1 warning (0.04 sec)
+Records: 10  Duplicates: 0  Warnings: 1
+
+mysql> SELECT*FROM NGOMA1;
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+----------+
+| ID   | F_name   | L_name       | Gender | province | District | Sector  | Cell    | Email                | phone     | category |
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+----------+
+|    1 | Claudine | MUJAWIMANA   | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | emmahclaudine@gmail. | 790085871 |     NULL |
+|    3 | Grace    | UWAYO        | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | grace@gmail.com      | 780085871 |     NULL |
+|    4 | Rodrigue | MUSONI       | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemusoni@gmail | 782285881 |     NULL |
+|    5 | Rodrigue | MUGABO       | M      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemu@gmail.com | 782285871 |     NULL |
+|    2 | Venant   | NDAHAYO      | M      | SOUTHERN | HUYE     | NGOMA   | Rwabuye | ndahayo123@gmail.com | 782255871 |     NULL |
+|    6 | Arstide  | Rudasingwa   | M      | SOUTHERN | HUYE     | Tumba   | Rango   | rudasingwa3@gmail.co | 782855871 |     NULL |
+|    7 | Aimee    | Mariya       | F      | SOUTHERN | HUYE     | Tumba   | Mukoni  | aimee3@gmail.com     | 782855875 |     NULL |
+|    8 | Pascal   | MUNYARUKUMBU | F      | Nothern  | Rulindo  | Rusiga  | Taba    | pascal@gmail.com     | 786161406 |     NULL |
+|    9 | Solina   | MUKAKALISA   | F      | Nothern  | Rulindo  | Rusiga  | Taba    | solina@gmail.com     | 726161406 |     NULL |
+|   10 | Cabella  | UJENEZA      | F      | Nothern  | Rulindo  | Bushoki | Tabagwe | cabella@gmail.com    | 726461406 |     NULL |
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+----------+
+10 rows in set (0.00 sec)
+
+mysql> alter table ngoma1 set category='3' where name='Rodrigue';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'set category='3' where name='Rodrigue'' at line 1
+mysql> alter table ngoma1 set category='3' where F_name='Rodrigue';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'set category='3' where F_name='Rodrigue'' at line 1
+mysql> update table ngoma1 set category='3' where F_name='Rodrigue';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table ngoma1 set category='3' where F_name='Rodrigue'' at line 1
+mysql> alter ngoma1 set category='3' where F_name='Rodrigue';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ngoma1 set category='3' where F_name='Rodrigue'' at line 1
+mysql> update ngoma1 set category='3' where F_name='Rodrigue';
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update ngoma1 set category='2' where F_name='claudine';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma1 set category='2' where F_name='Cabella';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma1 set category='1' where F_name='solina';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma1 set category='1' where F_name='Pascal';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from Ngoma1;
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+----------+
+| ID   | F_name   | L_name       | Gender | province | District | Sector  | Cell    | Email                | phone     | category |
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+----------+
+|    1 | Claudine | MUJAWIMANA   | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | emmahclaudine@gmail. | 790085871 |        2 |
+|    3 | Grace    | UWAYO        | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | grace@gmail.com      | 780085871 |     NULL |
+|    4 | Rodrigue | MUSONI       | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemusoni@gmail | 782285881 |        3 |
+|    5 | Rodrigue | MUGABO       | M      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemu@gmail.com | 782285871 |        3 |
+|    2 | Venant   | NDAHAYO      | M      | SOUTHERN | HUYE     | NGOMA   | Rwabuye | ndahayo123@gmail.com | 782255871 |     NULL |
+|    6 | Arstide  | Rudasingwa   | M      | SOUTHERN | HUYE     | Tumba   | Rango   | rudasingwa3@gmail.co | 782855871 |     NULL |
+|    7 | Aimee    | Mariya       | F      | SOUTHERN | HUYE     | Tumba   | Mukoni  | aimee3@gmail.com     | 782855875 |     NULL |
+|    8 | Pascal   | MUNYARUKUMBU | F      | Nothern  | Rulindo  | Rusiga  | Taba    | pascal@gmail.com     | 786161406 |        1 |
+|    9 | Solina   | MUKAKALISA   | F      | Nothern  | Rulindo  | Rusiga  | Taba    | solina@gmail.com     | 726161406 |        1 |
+|   10 | Cabella  | UJENEZA      | F      | Nothern  | Rulindo  | Bushoki | Tabagwe | cabella@gmail.com    | 726461406 |        2 |
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+----------+
+10 rows in set (0.00 sec)
+
+mysql> update ngoma1 set category='1' where F_name='Grace';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma1 set category='1' where F_name='Venant';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma1 set category='2' where F_name='Arstide';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma1 set category='3' where F_name='Aimee';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from ngoma1;
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+----------+
+| ID   | F_name   | L_name       | Gender | province | District | Sector  | Cell    | Email                | phone     | category |
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+----------+
+|    1 | Claudine | MUJAWIMANA   | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | emmahclaudine@gmail. | 790085871 |        2 |
+|    3 | Grace    | UWAYO        | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | grace@gmail.com      | 780085871 |        1 |
+|    4 | Rodrigue | MUSONI       | F      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemusoni@gmail | 782285881 |        3 |
+|    5 | Rodrigue | MUGABO       | M      | SOUTHERN | HUYE     | NGOMA   | BUTARE  | rodriguemu@gmail.com | 782285871 |        3 |
+|    2 | Venant   | NDAHAYO      | M      | SOUTHERN | HUYE     | NGOMA   | Rwabuye | ndahayo123@gmail.com | 782255871 |        1 |
+|    6 | Arstide  | Rudasingwa   | M      | SOUTHERN | HUYE     | Tumba   | Rango   | rudasingwa3@gmail.co | 782855871 |        2 |
+|    7 | Aimee    | Mariya       | F      | SOUTHERN | HUYE     | Tumba   | Mukoni  | aimee3@gmail.com     | 782855875 |        3 |
+|    8 | Pascal   | MUNYARUKUMBU | F      | Nothern  | Rulindo  | Rusiga  | Taba    | pascal@gmail.com     | 786161406 |        1 |
+|    9 | Solina   | MUKAKALISA   | F      | Nothern  | Rulindo  | Rusiga  | Taba    | solina@gmail.com     | 726161406 |        1 |
+|   10 | Cabella  | UJENEZA      | F      | Nothern  | Rulindo  | Bushoki | Tabagwe | cabella@gmail.com    | 726461406 |        2 |
++------+----------+--------------+--------+----------+----------+---------+---------+----------------------+-----------+----------+
+10 rows in set (0.00 sec)
+
+mysql> alter table ngoma1 drop province;
+Query OK, 10 rows affected (0.03 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select*from ngoma1;
++------+----------+--------------+--------+----------+---------+---------+----------------------+-----------+----------+
+| ID   | F_name   | L_name       | Gender | District | Sector  | Cell    | Email                | phone     | category |
++------+----------+--------------+--------+----------+---------+---------+----------------------+-----------+----------+
+|    1 | Claudine | MUJAWIMANA   | F      | HUYE     | NGOMA   | BUTARE  | emmahclaudine@gmail. | 790085871 |        2 |
+|    3 | Grace    | UWAYO        | F      | HUYE     | NGOMA   | BUTARE  | grace@gmail.com      | 780085871 |        1 |
+|    4 | Rodrigue | MUSONI       | F      | HUYE     | NGOMA   | BUTARE  | rodriguemusoni@gmail | 782285881 |        3 |
+|    5 | Rodrigue | MUGABO       | M      | HUYE     | NGOMA   | BUTARE  | rodriguemu@gmail.com | 782285871 |        3 |
+|    2 | Venant   | NDAHAYO      | M      | HUYE     | NGOMA   | Rwabuye | ndahayo123@gmail.com | 782255871 |        1 |
+|    6 | Arstide  | Rudasingwa   | M      | HUYE     | Tumba   | Rango   | rudasingwa3@gmail.co | 782855871 |        2 |
+|    7 | Aimee    | Mariya       | F      | HUYE     | Tumba   | Mukoni  | aimee3@gmail.com     | 782855875 |        3 |
+|    8 | Pascal   | MUNYARUKUMBU | F      | Rulindo  | Rusiga  | Taba    | pascal@gmail.com     | 786161406 |        1 |
+|    9 | Solina   | MUKAKALISA   | F      | Rulindo  | Rusiga  | Taba    | solina@gmail.com     | 726161406 |        1 |
+|   10 | Cabella  | UJENEZA      | F      | Rulindo  | Bushoki | Tabagwe | cabella@gmail.com    | 726461406 |        2 |
++------+----------+--------------+--------+----------+---------+---------+----------------------+-----------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select F_name,L_name,Email from ngoma1;
++----------+--------------+----------------------+
+| F_name   | L_name       | Email                |
++----------+--------------+----------------------+
+| Claudine | MUJAWIMANA   | emmahclaudine@gmail. |
+| Grace    | UWAYO        | grace@gmail.com      |
+| Rodrigue | MUSONI       | rodriguemusoni@gmail |
+| Rodrigue | MUGABO       | rodriguemu@gmail.com |
+| Venant   | NDAHAYO      | ndahayo123@gmail.com |
+| Arstide  | Rudasingwa   | rudasingwa3@gmail.co |
+| Aimee    | Mariya       | aimee3@gmail.com     |
+| Pascal   | MUNYARUKUMBU | pascal@gmail.com     |
+| Solina   | MUKAKALISA   | solina@gmail.com     |
+| Cabella  | UJENEZA      | cabella@gmail.com    |
++----------+--------------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select*from ngoma1 where Gender='F' and District='huye';
++------+----------+------------+--------+----------+--------+--------+----------------------+-----------+----------+
+| ID   | F_name   | L_name     | Gender | District | Sector | Cell   | Email                | phone     | category |
++------+----------+------------+--------+----------+--------+--------+----------------------+-----------+----------+
+|    1 | Claudine | MUJAWIMANA | F      | HUYE     | NGOMA  | BUTARE | emmahclaudine@gmail. | 790085871 |        2 |
+|    3 | Grace    | UWAYO      | F      | HUYE     | NGOMA  | BUTARE | grace@gmail.com      | 780085871 |        1 |
+|    4 | Rodrigue | MUSONI     | F      | HUYE     | NGOMA  | BUTARE | rodriguemusoni@gmail | 782285881 |        3 |
+|    7 | Aimee    | Mariya     | F      | HUYE     | Tumba  | Mukoni | aimee3@gmail.com     | 782855875 |        3 |
++------+----------+------------+--------+----------+--------+--------+----------------------+-----------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select*from ngoma1 where Gender='F' or District='huye';
++------+----------+--------------+--------+----------+---------+---------+----------------------+-----------+----------+
+| ID   | F_name   | L_name       | Gender | District | Sector  | Cell    | Email                | phone     | category |
++------+----------+--------------+--------+----------+---------+---------+----------------------+-----------+----------+
+|    1 | Claudine | MUJAWIMANA   | F      | HUYE     | NGOMA   | BUTARE  | emmahclaudine@gmail. | 790085871 |        2 |
+|    3 | Grace    | UWAYO        | F      | HUYE     | NGOMA   | BUTARE  | grace@gmail.com      | 780085871 |        1 |
+|    4 | Rodrigue | MUSONI       | F      | HUYE     | NGOMA   | BUTARE  | rodriguemusoni@gmail | 782285881 |        3 |
+|    5 | Rodrigue | MUGABO       | M      | HUYE     | NGOMA   | BUTARE  | rodriguemu@gmail.com | 782285871 |        3 |
+|    2 | Venant   | NDAHAYO      | M      | HUYE     | NGOMA   | Rwabuye | ndahayo123@gmail.com | 782255871 |        1 |
+|    6 | Arstide  | Rudasingwa   | M      | HUYE     | Tumba   | Rango   | rudasingwa3@gmail.co | 782855871 |        2 |
+|    7 | Aimee    | Mariya       | F      | HUYE     | Tumba   | Mukoni  | aimee3@gmail.com     | 782855875 |        3 |
+|    8 | Pascal   | MUNYARUKUMBU | F      | Rulindo  | Rusiga  | Taba    | pascal@gmail.com     | 786161406 |        1 |
+|    9 | Solina   | MUKAKALISA   | F      | Rulindo  | Rusiga  | Taba    | solina@gmail.com     | 726161406 |        1 |
+|   10 | Cabella  | UJENEZA      | F      | Rulindo  | Bushoki | Tabagwe | cabella@gmail.com    | 726461406 |        2 |
++------+----------+--------------+--------+----------+---------+---------+----------------------+-----------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select*from ngoma1 where Gender='F' and category='1';
++------+--------+--------------+--------+----------+--------+--------+------------------+-----------+----------+
+| ID   | F_name | L_name       | Gender | District | Sector | Cell   | Email            | phone     | category |
++------+--------+--------------+--------+----------+--------+--------+------------------+-----------+----------+
+|    3 | Grace  | UWAYO        | F      | HUYE     | NGOMA  | BUTARE | grace@gmail.com  | 780085871 |        1 |
+|    8 | Pascal | MUNYARUKUMBU | F      | Rulindo  | Rusiga | Taba   | pascal@gmail.com | 786161406 |        1 |
+|    9 | Solina | MUKAKALISA   | F      | Rulindo  | Rusiga | Taba   | solina@gmail.com | 726161406 |        1 |
++------+--------+--------------+--------+----------+--------+--------+------------------+-----------+----------+
+3 rows in set (0.00 sec)
+
+mysql>
